@@ -146,14 +146,6 @@ function callUrl(url, use_authenticated = false, parse_response = true) {
         use_authenticated
     )
 
-    if (!resp.isOk) {
-        // log(resp)
-        if (resp.code === 401) {
-            throw new UnavailableException('Video is only available to Nebula Subscribers')
-        } else {
-            throw new ScriptException(resp.statusMessage)
-        }
-    }
 
     if (parse_response) {
         const json = JSON.parse(resp.body)
