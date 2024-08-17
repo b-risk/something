@@ -99,11 +99,8 @@ source.isContentDetailsUrl = function (url) {
 }
 source.getContentDetails = function (url) {
     const id = url.split('/').pop()
-
-    if(!bridge.isLoggedIn())
-        throw new UnavailableException('Nebula videos are only available after login');
     /** @type {import("./types.ts".ContentDetail)} */
-    const j = callUrl(`https://content.api.nebula.app/content/videos/${id}`, true)
+    const j = callUrl(`https://content.api.nebula.app/content/videos/${id}`)
 
     // const token = getToken()
 
